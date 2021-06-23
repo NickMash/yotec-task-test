@@ -1,0 +1,10 @@
+<div class="all_videos__container">
+  <app-search-line></app-search-line>
+  <app-video-list
+    [rowData$]="youtubeSearchService.rowData$"
+    [statusBar]="statusBar"
+    [frameworkComponents]="frameworkComponents"
+    [checkBoxStyle]="'checkbox'"
+    [isAllResults]="isAllResults"
+  ></app-video-list>
+</div>

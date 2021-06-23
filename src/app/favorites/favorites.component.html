@@ -1,0 +1,10 @@
+<div class="favorites__container">
+  <div class="delete_favorites_button" (click)="clearMemory()">DELETE ALL FAVORITES</div>
+  <app-video-list
+    [rowData$]="youtubeSearchService.favorites$"
+    [statusBar]="statusBar"
+    [frameworkComponents]="frameworkComponents"
+    [checkBoxStyle]="'remove'"
+    [isAllResults]="false"
+  ></app-video-list>
+</div>

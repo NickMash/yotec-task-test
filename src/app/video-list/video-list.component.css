@@ -1,0 +1,77 @@
+.table {
+  width: 960px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 30px;
+  border: 3px solid #00B4CC;
+  border-radius: 5px;
+}
+::ng-deep.checkbox {
+  position: relative;
+  margin: 0;
+  z-index: 9;
+}
+::ng-deep.checkbox:before {
+  background: white;
+  border: 1px solid #00b4cc;
+  position: absolute;
+  margin-left: -5px;
+  margin-top: -4px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  border-radius: 5px;
+  content: " ";
+}
+::ng-deep.checkbox:checked:before {
+  background: #00b4cc;
+  cursor: pointer;
+}
+::ng-deep.checkbox:checked:after {
+  content: " ";
+  background: transparent;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  position: absolute;
+  top: 2px;
+  left: 1px;
+  width: 9px;
+  height: 6px;
+  z-index: 2;
+  transform: rotate(-45deg);
+  cursor: pointer;
+}
+::ng-deep.remove {
+  position: relative;
+  margin: 0;
+  z-index: 9;
+}
+::ng-deep.remove:before {
+  background: #d43f3f;
+  border: 1px solid #d43f3f;
+  position: absolute;
+  margin-left: -5px;
+  margin-top: -4px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  border-radius: 5px;
+  content: " ";
+}
+::ng-deep.remove:after {
+  content: "x";
+  color: white;
+  background: transparent;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 22px;
+  height: 22px;
+  z-index: 2;
+  font-size: 140%;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
