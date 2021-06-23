@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import Helper from '../helpers/prepare-row-data';
 import Data from '../helpers/mock-data';
 import { CheckboxComponent } from '../checkbox/checkbox.component';
 import { ThumbnailsImageComponent } from '../thumbnails-image/thumbnails-image.component';
 import { TitleLinkComponent } from '../title-link/title-link.component';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -87,21 +88,21 @@ export class YoutubeSearchService {
 
   constructor(private http: HttpClient) {}
 
-  // getVideos(inputValue: string, location: string, sorting: string, quantity: number): Observable <any> {
-  //   const url = `${this.API_URL}?q=${inputValue.toLowerCase()}?location=${location.toLowerCase()}?order=`+
-  //     `${sorting.toLowerCase()}&key=${this.API_TOKEN}&part=snippet&type=video&maxResults=${quantity.toString()}`;
-  //   return this.http.get(url)
-  //     .pipe(
-  //       map((response: any) => Helper.prepareRowData(response))
-  //     );
-  // }
+  getVideos(inputValue: string, location: string, sorting: string, quantity: number): Observable <any> {
+    const url = `${this.API_URL}?q=${inputValue.toLowerCase()}?location=${location.toLowerCase()}?order=`+
+      `${sorting.toLowerCase()}&key=${this.API_TOKEN}&part=snippet&type=video&maxResults=${quantity.toString()}`;
+    return this.http.get(url)
+      .pipe(
+        map((response: any) => Helper.prepareRowData(response))
+      );
+  }
 
   // TODO Use this function instead 'getVideos' higher if you got 403 error. Here is mock data used. Or use another API_TOKEN.
-  getVideos(inputValue: string, location: string, sorting: string, quantity: number) {
-    this.rowDataArray = Helper.prepareRowData(Data.data);
-    this.rowData$.next(this.rowDataArray);
-    return this.rowData$;
-  }
+  // getVideos(inputValue: string, location: string, sorting: string, quantity: number) {
+  //   this.rowDataArray = Helper.prepareRowData(Data.data);
+  //   this.rowData$.next(this.rowDataArray);
+  //   return this.rowData$;
+  // }
 
   handleSearch(inputValue: string = '', location: string = '', sorting: string = '', quantity = 25): void {
       this.getVideos(inputValue, location, sorting, quantity).subscribe(value => {
