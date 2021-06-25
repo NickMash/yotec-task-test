@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CheckboxComponent } from './checkbox.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('CheckboxComponent', () => {
   let component: CheckboxComponent;
@@ -8,7 +9,8 @@ describe('CheckboxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CheckboxComponent ]
+      declarations: [ CheckboxComponent ],
+      imports: [ HttpClientTestingModule ],
     })
     .compileComponents();
   });

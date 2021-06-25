@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FavoritesSelectionButtonComponent } from './favorites-selection-button.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('FavoritesSelectionButtonComponent', () => {
   let component: FavoritesSelectionButtonComponent;
@@ -8,7 +9,8 @@ describe('FavoritesSelectionButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FavoritesSelectionButtonComponent ]
+      declarations: [ FavoritesSelectionButtonComponent ],
+      imports: [ HttpClientTestingModule ],
     })
     .compileComponents();
   });

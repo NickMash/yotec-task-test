@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchLineComponent } from './search-line.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('SearchLineComponent', () => {
   let component: SearchLineComponent;
@@ -8,7 +10,12 @@ describe('SearchLineComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchLineComponent ]
+      declarations: [ SearchLineComponent, ],
+      imports: [
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+        FormsModule,
+      ],
     })
     .compileComponents();
   });

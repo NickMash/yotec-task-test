@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MenuItemComponent } from './menu-item.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('MenuItemComponent', () => {
   let component: MenuItemComponent;
@@ -8,7 +9,8 @@ describe('MenuItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuItemComponent ]
+      declarations: [ MenuItemComponent ],
+      imports: [ HttpClientTestingModule ],
     })
     .compileComponents();
   });

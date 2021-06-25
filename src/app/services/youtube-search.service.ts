@@ -97,14 +97,14 @@ export class YoutubeSearchService {
       );
   }
 
-  // TODO Use this function instead 'getVideos' higher if you got 403 error. Here is mock data used. Or use another API_TOKEN.
+  // TODO Use this function instead of 'getVideos' higher if you got 403 error. Here is mock data used. Or use another API_TOKEN.
   // getVideos(inputValue: string, location: string, sorting: string, quantity: number) {
   //   this.rowDataArray = Helper.prepareRowData(Data.data);
   //   this.rowData$.next(this.rowDataArray);
   //   return this.rowData$;
   // }
 
-  handleSearch(inputValue: string = '', location: string = '', sorting: string = '', quantity = 25): void {
+  handleSearch(inputValue: string = '', location: string = '', sorting: string = '', quantity = 50): void {
       this.getVideos(inputValue, location, sorting, quantity).subscribe(value => {
           // @ts-ignore
           this.rowDataArray = value.map((item: any) => ({...item, checkbox: false}));

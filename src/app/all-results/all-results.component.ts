@@ -34,13 +34,13 @@ export class AllResultsComponent implements OnInit {
     } else {
       this.isAllResults = !this.youtubeSearchService.show;
     }
-    const localSorageFavorites = JSON.parse(<string>localStorage.getItem('favorites'));
-    localSorageFavorites.forEach((item: any) => {
+    const localStorageFavorites = JSON.parse(<string>localStorage.getItem('favorites')) || [];
+    localStorageFavorites.forEach((item: any) => {
       // @ts-ignore
-      this.youtubeSearchService.rowDataArray.find((elem) => item.videoId === elem.videoId).checkbox = true;
+      this.youtubeSearchService.rowDataArray.find((elem) => item.videoId === elem.videoId)?.checkbox = true;
     });
     this.youtubeSearchService.rowData$.next(this.youtubeSearchService.rowDataArray);
-    this.youtubeSearchService.favorites = localSorageFavorites || [];
+    this.youtubeSearchService.favorites = localStorageFavorites || [];
     this.youtubeSearchService.favorites$.next(this.youtubeSearchService.favorites);
   }
 
