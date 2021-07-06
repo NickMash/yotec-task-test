@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { YoutubeSearchService } from '../services/youtube-search.service';
+import { TableRendererService } from '../services/table-renderer.service';
 
 @Component({
   selector: 'app-video-list',
@@ -13,13 +14,14 @@ export class VideoListComponent implements OnChanges{
   @Input() frameworkComponents: any;
   @Input() checkBoxStyle: any;
   @Input() isAllResults: any;
+  @Input() showHeaderCheckbox: any;
 
   columnDefs: any;
 
-  constructor(public youtubeSearchService: YoutubeSearchService) { }
+  constructor(public youtubeSearchService: YoutubeSearchService, public tableRendererService: TableRendererService) { }
 
   ngOnChanges() {
-    this.columnDefs = this.youtubeSearchService.columnDefs(this.isAllResults, this.checkBoxStyle);
+    this.columnDefs = this.tableRendererService.columnDefs(this.isAllResults, this.checkBoxStyle, this.showHeaderCheckbox);
   }
 
   gridOptions: any = {

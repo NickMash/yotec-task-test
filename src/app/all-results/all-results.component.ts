@@ -25,6 +25,7 @@ export class AllResultsComponent implements OnInit {
     favoritesSelectionButtonComponent: FavoritesSelectionButtonComponent,
   };
   isAllResults: any;
+  showHeaderCheckbox: any;
 
   constructor(public youtubeSearchService: YoutubeSearchService) { }
 
@@ -34,6 +35,7 @@ export class AllResultsComponent implements OnInit {
     } else {
       this.isAllResults = !this.youtubeSearchService.show;
     }
+    this.showHeaderCheckbox = true;
     const localStorageFavorites = JSON.parse(<string>localStorage.getItem('favorites')) || [];
     localStorageFavorites.forEach((item: any) => {
       // @ts-ignore

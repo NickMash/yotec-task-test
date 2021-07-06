@@ -27,9 +27,4 @@ describe('YoutubeSearchService', () => {
     });
   }));
 
-  it('should create the field in localStorage', () => {
-    service.addToFavoritesToLocalStorage();
-    expect(Boolean(localStorage.getItem('favorites'))).toEqual(true);
-  });
-
 });

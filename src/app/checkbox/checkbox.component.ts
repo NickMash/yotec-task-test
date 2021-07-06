@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { YoutubeSearchService } from '../services/youtube-search.service';
 import { FormControl } from '@angular/forms';
+import { TableRendererService } from '../services/table-renderer.service';
 
 @Component({
   selector: 'app-checkbox',
@@ -11,7 +12,7 @@ export class CheckboxComponent {
 
   checkbox = new FormControl('');
 
-  constructor(public youtubeSearchService: YoutubeSearchService) { }
+  constructor(public youtubeSearchService: YoutubeSearchService, public tableRendererService: TableRendererService) { }
 
   agInit(): void {
   }
@@ -25,7 +26,7 @@ export class CheckboxComponent {
     this.youtubeSearchService.favorites =
       this.youtubeSearchService.rowDataArray.filter((item: any) => item.checkbox === true);
     this.youtubeSearchService.favorites$.next(this.youtubeSearchService.favorites);
-    this.youtubeSearchService.addToFavoritesToLocalStorage();
+    this.tableRendererService.addToFavoritesToLocalStorage();
   }
 
 }
