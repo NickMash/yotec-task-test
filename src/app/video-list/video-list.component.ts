@@ -30,7 +30,7 @@ export class VideoListComponent implements OnChanges{
 
   getContextMenuItems(params: any) {
     const url = this.youtubeSearchService.getUrl(params.node.data.videoId);
-    if (params.column.colId === 'thumbnails') {
+    if (params.column.colId === 'title') {
       return [
         'copy',
         'copyWithHeaders',

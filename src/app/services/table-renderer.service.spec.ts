@@ -1,12 +1,14 @@
 import { TestBed } from '@angular/core/testing';
-
 import { TableRendererService } from './table-renderer.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('TableRendererService', () => {
   let service: TableRendererService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule, ],
+    }).compileComponents();
     service = TestBed.inject(TableRendererService);
   });
 

@@ -10,9 +10,9 @@ import { map } from 'rxjs/operators';
 })
 export class YoutubeSearchService {
 
-  private API_URL = 'https://www.googleapis.com/youtube/v3/search';
-  private API_TOKEN = 'AIzaSyCoLEzHXFMH7zi1Zeq4ruV0uqFtClBMQFw';
-  private youtubeUrl = 'https://www.youtube.com/watch?v=';
+  public API_URL = 'https://www.googleapis.com/youtube/v3/search';
+  public API_TOKEN = 'AIzaSyCoLEzHXFMH7zi1Zeq4ruV0uqFtClBMQFw';
+  public youtubeUrl = 'https://www.youtube.com/watch?v=';
 
   rowData$ = new BehaviorSubject([]);
   favorites$ = new BehaviorSubject([]);
@@ -21,8 +21,6 @@ export class YoutubeSearchService {
   rowDataArray = [];
   show = false;
   allResultsInitsCount = 0;
-
-
 
   constructor(private http: HttpClient) {}
 
